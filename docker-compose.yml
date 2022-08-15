@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  routes:
+    image: vladcherniavsky/fun_with_flights
+    build:
+      context: ./
+      target: development-build-stage
+      dockerfile: Dockerfile
+    container_name: vladcherniavsky/fun_with_flights
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/app
+      - /app/node_modules
+
+

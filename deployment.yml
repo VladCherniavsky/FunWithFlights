@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fun-with-flights
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: fun-with-flights
+  template:
+    metadata:
+      labels:
+        name: fun-with-flights
+    spec:
+      containers:
+        - name: fun-with-flights
+          image: public.ecr.aws/l6f2m4u0/fun-with-flights:0.0.4
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
